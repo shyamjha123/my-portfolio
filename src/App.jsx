@@ -138,10 +138,10 @@ export default function Portfolio() {
   ];
 
   const skills = {
-    "Frontend": ["React", "Next.js", "Vue.js", "TypeScript", "Tailwind CSS", "Redux", "HTML5/CSS3"],
-    "Backend": ["Node.js", "Express", "Django", "Laravel", "PostgreSQL", "MongoDB", "Redis"],
-    "DevOps": ["AWS", "Docker", "Kubernetes", "CI/CD", "Nginx", "Jenkins"],
-    "Tools": ["Git", "Jira", "Figma", "Postman", "VS Code", "Webpack"]
+    "Frontend": ["React", "React Native", "Next.js", "TypeScript", "Tailwind CSS", "Redux", "HTML5/CSS3", "Material UI"],
+    "Backend": ["Node.js", "Express", "PostgreSQL", "MongoDB", "MYSQL"],
+    "DevOps": ["AWS", "Docker","CI/CD", "Nginx"],
+    "Tools": ["Git", "Jira", "Figma", "Postman", "VS Code", "Webpack", "Gitlab", "Cursor AI", ]
   };
 
   const projects = [
@@ -971,7 +971,7 @@ export default function Portfolio() {
 
       {/* Hero Section */}
       <section id="hero" className="hero-section">
-        <div className="hero-content">
+        <div className="hero-content" style={{marginTop:"90px"}}>
           <div className="hero-label">FULL STACK DEVELOPER</div>
           <h1 className="hero-title">Crafting Digital Experiences</h1>
           <p className="hero-subtitle">Building scalable applications with modern technologies</p>
