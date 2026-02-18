@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, Briefcase, Code2, GraduationCap, Award, ChevronDown } from 'lucide-react';
-
+import Zevopay from "./assets/zevopay.png";
+import Sec4sys from "./assets/Sec4sys.jpeg";
+import Driver from "./assets/Driver.png";
+import Cashofone from "./assets/cashofone.png";
+import Hotel from "./assets/Hotel.png";
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState('hero');
   const [isScrolled, setIsScrolled] = useState(false);
@@ -9,7 +13,7 @@ export default function Portfolio() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      
+
       const sections = ['hero', 'about', 'experience', 'freelance', 'skills', 'projects', 'contact'];
       const current = sections.find(section => {
         const element = document.getElementById(section);
@@ -76,9 +80,24 @@ export default function Portfolio() {
 
   const freelanceProjects = [
     {
+      client: "Sec4sys",
+      project: "Cybersecurity Product",
+      period: "Oct 2025 - Ongoing",
+      budget: "$20,000",
+      description: "Cybersecurity project provide users SAST Scanning, DAST Scanning, IAST Scanning",
+      deliverables: [
+        "Providing all majors three scanning engines that is SAST, DAST, IAST",
+        "for depth scanning purpose in product we provide Ai robots also that got access of ur repo and give false positive details",
+        "scanning all type providing like pattern analysis, Taint analysis, Data Flow analysis",
+        "Dast got website url scan give scan result and if u want than u select Ai resolver to give depth false positive details"
+      ],
+      tech: ["React Js", "Python", "PostgreSql", "CI/CD pipeline", "Docker"],
+      outcome: "Product almost ready to delivery at now we represent our product to clients"
+    },
+    {
       client: "Techies Gateway",
       project: "Customer/Driver booking application",
-      period: "Feb 2026 - Feb 2026",
+      period: "Feb 2026 - Ongoing",
       budget: "$77.13",
       description: "customer booking cab and driver accept customer request provide service",
       deliverables: [
@@ -87,87 +106,90 @@ export default function Portfolio() {
         "for type safety and more scalable application build in application using Typescript",
         "optimised application size and smooth UI application load time reduced upto 50%"
       ],
-      tech: ["React Native", "React Js", "Typescript"],
+      tech: ["React Native", "React Js", "Typescript", "Google Maps API"],
       outcome: "Platform under process  and client satisfaction 100%"
     },
     {
-      client: "Healthcare Provider",
-      project: "Patient Management System",
-      period: "May 2023 - Aug 2023",
-      budget: "$18,000",
-      description: "HIPAA-compliant patient records and appointment scheduling system",
+      client: "Techies Gateway",
+      project: "Cashofone",
+      period: "Feb 2026 -Ongoing",
+      budget: "$77.13",
+      description: "Cashofone app like a cashify sell second hand mobiles of different varients",
       deliverables: [
-        "Secure patient portal with encrypted data storage",
-        "Appointment scheduling with calendar integration",
-        "Automated email/SMS reminders",
-        "Role-based access control for staff"
+        "Added Filters to select different varients of devices",
+        "users can purchase devices",
+        "Realtime notifications user got when admin placed notification",
+        "IOS/Android device compatible device",
+        "Payments gateway inetegration",
       ],
-      tech: ["React", "Express", "PostgreSQL", "AWS S3", "Twilio"],
-      outcome: "Reduced appointment no-shows by 35% and improved patient satisfaction"
+      tech: ["React Native", "UseSignalApI", "Google Maps API"],
+      outcome: "under process application but their beta versiona user now testing in market"
     },
     {
-      client: "Real Estate Agency",
-      project: "Property Listing & CRM Platform",
-      period: "Jan 2023 - Apr 2023",
-      budget: "$15,000",
-      description: "Custom CRM with property listings, lead management, and analytics",
+      client: "Techies Gateway",
+      project: "Food order Application",
+      period: "Feb 2026 - Ongoing",
+      budget: "$77.13",
+      description: "Users order foods from their favourite Restaurant",
       deliverables: [
-        "Interactive property search with map integration",
-        "Lead tracking and automated follow-up system",
-        "Analytics dashboard for performance metrics",
-        "Mobile-responsive design"
+        "Users under 5 km range select their favourite restaurant and order their food",
+        "Realtime updates users got of new open restaurant and latest foods available",
+        "IOS/Android device compatible device",
+        "Payment gateway integration food ordering",
+
       ],
-      tech: ["Vue.js", "Laravel", "MySQL", "Google Maps API"],
+      tech: ["React Native", "Google Maps API"],
       outcome: "Increased lead conversion rate by 45% within 3 months"
     },
-    {
-      client: "Educational Institution",
-      project: "Online Learning Management System",
-      period: "Sep 2022 - Dec 2022",
-      budget: "$20,000",
-      description: "LMS with course creation, video streaming, and progress tracking",
-      deliverables: [
-        "Course builder with multimedia support",
-        "Video streaming with CDN integration",
-        "Student progress tracking and certificates",
-        "Discussion forums and chat features"
-      ],
-      tech: ["React", "Node.js", "MongoDB", "AWS CloudFront", "Socket.io"],
-      outcome: "Serving 500+ students across 20+ courses with 95% satisfaction rate"
-    }
   ];
 
   const skills = {
     "Frontend": ["React", "React Native", "Next.js", "TypeScript", "Tailwind CSS", "Redux", "HTML5/CSS3", "Material UI"],
     "Backend": ["Node.js", "Express", "PostgreSQL", "MongoDB", "MYSQL"],
-    "DevOps": ["AWS", "Docker","CI/CD", "Nginx"],
-    "Tools": ["Git", "Jira", "Figma", "Postman", "VS Code", "Webpack", "Gitlab", "Cursor AI", ]
+    "DevOps": ["AWS", "Docker", "CI/CD", "Nginx"],
+    "Tools": ["Git", "Jira", "Figma", "Postman", "VS Code", "Webpack", "Gitlab", "Cursor AI",]
   };
 
   const projects = [
     {
-      title: "Real-Time Collaboration Tool",
-      description: "Google Docs-like collaborative editor with real-time sync",
-      tech: ["React", "Node.js", "Socket.io", "MongoDB"],
+      title: "Zevopay",
+      description: "B2B Fintech product providing B2B services like collection, Payout, Loan services, Dth recharge, Rail ticketm bus ticket etc",
+      tech: ["React Js", "React Native", "MYSQL", "NEST Js", "Prism Orm", "Gitlab", "Pm2", "Hostinger"],
       github: "#",
-      live: "#",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop"
+      live: "https://zevopay.online/",
+      image: Zevopay
     },
     {
-      title: "AI-Powered Analytics Dashboard",
-      description: "Business intelligence platform with ML-driven insights",
-      tech: ["Next.js", "Python", "TensorFlow", "PostgreSQL"],
+      title: "Sec4sys",
+      description: "Cybersecurity Product providing you all soln related to cybersecurity like SAST,DAST,IAST engines",
+      tech: ["React Js", "Python", "PostgreSql", "CI/CD pipeline", "Docker"],
       github: "#",
-      live: "#",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop"
+      live: "https://sec4sys.com/",
+      image: Sec4sys
     },
     {
-      title: "Microservices E-Commerce",
-      description: "Scalable e-commerce platform with microservices architecture",
-      tech: ["React", "Node.js", "Docker", "Kubernetes", "RabbitMQ"],
+      title: "Customer/Driver Booking Application",
+      description: "Customer can select their driver select car model and for incity, out station, valet and driver accept their ride after booking confirmation its work like a DRIVu application",
+      tech: ["React Native", "Google Map Api", "Typescript"],
       github: "#",
       live: "#",
-      image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&auto=format&fit=crop"
+      image: Driver
+    },
+    {
+      title: "Cashofone",
+      description: "Second hand mobile devices sell of different variants all variants provided in single platform its same like cashify",
+      tech: ["React Native", "Google Map Api", "Typescript"],
+      github: "https://github.com/shyamjha123/cashfone.git",
+      live: "https://1drv.ms/f/c/80430f4aae8548e0/IgArxgDEu2H0R4f5eGCAwDlSAQHv48aI3UIPcqXquLkd9qk?e=miImuO",
+      image: Cashofone
+    },
+    {
+      title: "Food Delivery Application",
+      description: "Users can order their food in nearby under 5km range of restaurant",
+      tech: ["React Native", "Google Map Api", "Typescript"],
+      github: "#",
+      live: "#",
+      image: Hotel
     }
   ];
 
@@ -947,7 +969,7 @@ export default function Portfolio() {
       `}</style>
 
       {/* Custom cursor glow */}
-      <div 
+      <div
         className="cursor-glow"
         style={{
           left: mousePosition.x,
@@ -971,12 +993,12 @@ export default function Portfolio() {
 
       {/* Hero Section */}
       <section id="hero" className="hero-section">
-        <div className="hero-content" style={{marginTop:"90px"}}>
+        <div className="hero-content" style={{ marginTop: "90px" }}>
           <div className="hero-label">FULL STACK DEVELOPER</div>
           <h1 className="hero-title">Crafting Digital Experiences</h1>
           <p className="hero-subtitle">Building scalable applications with modern technologies</p>
           <p className="hero-description">
-            Senior Full Stack Developer with 2+ years of experience building enterprise applications 
+            Senior Full Stack Developer with 2+ years of experience building enterprise applications
             and delivering high-impact freelance projects. Specialized in React, React native, Node.js, Nest Js, MYSQL, PostgreSql, Prisma Orm, CI/CD , Github, Gitlab and cloud architecture.
           </p>
           <div className="hero-cta">
@@ -1000,26 +1022,26 @@ export default function Portfolio() {
         <div className="content-wrapper">
           <h2 className="section-title">About Me</h2>
           <p className="section-subtitle">Passionate about creating innovative solutions</p>
-          
+
           <div className="about-grid">
             <div className="about-text">
               <p>
-                I'm a Full Stack Developer with a proven track record of delivering 
-                high-quality web applications for both corporate clients and freelance projects. 
-                My expertise spans across modern frontend frameworks, robust backend systems, 
+                I'm a Full Stack Developer with a proven track record of delivering
+                high-quality web applications for both corporate clients and freelance projects.
+                My expertise spans across modern frontend frameworks, robust backend systems,
                 and cloud infrastructure.
               </p>
               <p>
-                Throughout my career, I've led development teams, architected scalable solutions, 
-                and mentored junior developers. I'm passionate about writing clean, maintainable 
+                Throughout my career, I've led development teams, architected scalable solutions,
+                and mentored junior developers. I'm passionate about writing clean, maintainable
                 code and staying current with the latest industry trends and best practices.
               </p>
               <p>
-                When I'm not coding, I contribute to open-source projects, write technical articles, 
+                When I'm not coding, I contribute to open-source projects, write technical articles,
                 and explore new technologies to continuously improve my craft.
               </p>
             </div>
-            
+
             <div className="stats-grid">
               <div className="stat-card">
                 <div className="stat-number">2+</div>
@@ -1047,7 +1069,7 @@ export default function Portfolio() {
         <div className="content-wrapper">
           <h2 className="section-title">Full-Time Experience</h2>
           <p className="section-subtitle">My professional journey in corporate environments</p>
-          
+
           <div className="experience-list">
             {fullTimeExperience.map((exp, index) => (
               <div key={index} className="experience-card">
@@ -1064,15 +1086,15 @@ export default function Portfolio() {
                     <div className="location">{exp.location}</div>
                   </div>
                 </div>
-                
+
                 <p className="experience-description">{exp.description}</p>
-                
+
                 <ul className="achievements">
                   {exp.achievements.map((achievement, i) => (
                     <li key={i}>{achievement}</li>
                   ))}
                 </ul>
-                
+
                 <div className="tech-tags">
                   {exp.tech.map((tech, i) => (
                     <span key={i} className="tech-tag">{tech}</span>
@@ -1089,7 +1111,7 @@ export default function Portfolio() {
         <div className="content-wrapper">
           <h2 className="section-title">Freelance Projects</h2>
           <p className="section-subtitle">Delivering custom solutions for diverse clients</p>
-          
+
           <div className="experience-list">
             {freelanceProjects.map((project, index) => (
               <div key={index} className="experience-card">
@@ -1106,21 +1128,21 @@ export default function Portfolio() {
                     <div className="period">{project.period}</div>
                   </div>
                 </div>
-                
+
                 <p className="experience-description">{project.description}</p>
-                
+
                 <ul className="deliverables">
                   {project.deliverables.map((deliverable, i) => (
                     <li key={i}>{deliverable}</li>
                   ))}
                 </ul>
-                
+
                 <div className="tech-tags">
                   {project.tech.map((tech, i) => (
                     <span key={i} className="tech-tag">{tech}</span>
                   ))}
                 </div>
-                
+
                 <div className="project-outcome">
                   <strong>Outcome:</strong> {project.outcome}
                 </div>
@@ -1135,7 +1157,7 @@ export default function Portfolio() {
         <div className="content-wrapper">
           <h2 className="section-title">Technical Skills</h2>
           <p className="section-subtitle">Technologies and tools I work with</p>
-          
+
           <div className="skills-grid">
             {Object.entries(skills).map(([category, skillList]) => (
               <div key={category} className="skill-category">
@@ -1156,7 +1178,7 @@ export default function Portfolio() {
         <div className="content-wrapper">
           <h2 className="section-title">Featured Projects</h2>
           <p className="section-subtitle">Some of my recent work</p>
-          
+
           <div className="projects-grid">
             {projects.map((project, index) => (
               <div key={index} className="project-card">
@@ -1192,11 +1214,11 @@ export default function Portfolio() {
           <div className="contact-content">
             <h2 className="section-title">Let's Work Together</h2>
             <p className="contact-text">
-              I'm currently available for freelance projects and full-time opportunities. 
-              Whether you need a complete web application or just want to discuss your ideas, 
+              I'm currently available for freelance projects and full-time opportunities.
+              Whether you need a complete web application or just want to discuss your ideas,
               I'd love to hear from you.
             </p>
-            
+
             <div className="contact-methods">
               <a href="mailto:your.sjha23234@gmail.com" className="contact-method">
                 <div className="contact-icon">
@@ -1217,7 +1239,7 @@ export default function Portfolio() {
                 <span className="contact-label">GitHub</span>
               </a>
             </div>
-            
+
             <button className="btn-primary" onClick={() => window.location.href = 'mailto:your.sjha23234@gmail.com'}>
               Send Message
               <Mail size={18} />
