@@ -5,6 +5,43 @@ import Sec4sys from "./assets/Sec4sys.jpeg";
 import Driver from "./assets/Driver.png";
 import Cashofone from "./assets/cashofone.png";
 import Hotel from "./assets/Hotel.png";
+import hotelmanage1 from "./assets/service1.png";
+import hotelmanage2 from "./assets/service2.png";
+import hotelmanage3 from "./assets/service3.png";
+import hotelmanage4 from "./assets/service4.png";
+
+// Carousel component
+const ImageCarousel = ({ images, alt }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000); // Change image every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  return (
+    <div className="carousel-container">
+      <img 
+        src={images[currentIndex]} 
+        alt={`${alt} - ${currentIndex + 1}`} 
+        className="project-image carousel-image"
+      />
+      <div className="carousel-indicators">
+        {images.map((_, index) => (
+          <span 
+            key={index} 
+            className={`carousel-dot ${index === currentIndex ? 'active' : ''}`}
+            onClick={() => setCurrentIndex(index)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState('hero');
   const [isScrolled, setIsScrolled] = useState(false);
@@ -80,6 +117,36 @@ export default function Portfolio() {
 
   const freelanceProjects = [
     {
+      client: "Hospitality Client",
+      project: "Hotel Management & Booking Platform",
+      period: "2026 - Ongoing",
+      budget: "Client Project",
+      description:
+        "A full-stack hotel management and booking platform designed to manage hotels, rooms, availability, reservations, payments and hotel operations through dedicated User, Hotel Owner and Admin portals.",
+      deliverables: [
+        "Developed a responsive hotel booking experience with hotel search, location filtering, check-in/check-out and guest & room selection",
+        "Implemented hotel and room management for Hotel Owners including rooms, amenities, photos and availability",
+        "Built Admin management features for users, hotel owners, hotels, amenities, bookings and customer queries",
+        "Implemented role-based authentication and authorization with secure RESTful APIs",
+        "Integrated Razorpay payment workflow with booking and payment verification",
+        "Implemented hotel and room image upload and management using Cloudinary",
+        "Implemented booking lifecycle including availability checking, booking creation, cancellation and booking status management",
+        "RAG pipeline integration is currently in progress for AI-powered knowledge retrieval and contextual responses"
+      ],
+      tech: [
+        "React.js",
+        "NestJS",
+        "TypeScript",
+        "MySQL",
+        "Prisma ORM",
+        "Razorpay",
+        "Cloudinary",
+        "RAG Pipeline"
+      ],
+      outcome:
+        "Production-oriented hospitality platform currently under development, with AI-powered RAG pipeline integration in progress."
+    },
+    {
       client: "Sec4sys",
       project: "Cybersecurity Product",
       period: "Oct 2025 - Ongoing",
@@ -144,13 +211,72 @@ export default function Portfolio() {
   ];
 
   const skills = {
-    "Frontend": ["React", "React Native", "Next.js", "TypeScript", "Tailwind CSS", "Redux", "HTML5/CSS3", "Material UI"],
-    "Backend": ["Node.js", "Express", "PostgreSQL", "MongoDB", "MYSQL"],
-    "DevOps": ["AWS", "Docker", "CI/CD", "Nginx"],
-    "Tools": ["Git", "Jira", "Figma", "Postman", "VS Code", "Webpack", "Gitlab", "Cursor AI",]
+    "Frontend": [
+      "React",
+      "React Native",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Redux",
+      "HTML5/CSS3",
+      "Material UI"
+    ],
+
+    "Backend": [
+      "Node.js",
+      "Express",
+      "NestJS",
+      "PostgreSQL",
+      "MongoDB",
+      "MySQL",
+      "Prisma ORM"
+    ],
+
+    "AI & RAG": [
+      "RAG Pipeline",
+      "AI Integration",
+      "Vector Search",
+      "Knowledge Retrieval"
+    ],
+
+    "DevOps": [
+      "AWS",
+      "Docker",
+      "CI/CD",
+      "Nginx"
+    ],
+
+    "Tools": [
+      "Git",
+      "GitHub",
+      "GitLab",
+      "Jira",
+      "Figma",
+      "Postman",
+      "VS Code",
+      "Cursor AI"
+    ]
   };
 
   const projects = [
+    {
+      title: "Hotel Management & Booking Platform",
+      description:
+        "Full-stack hotel management and booking platform with dedicated User, Hotel Owner and Admin portals. Includes hotel and room management, availability, bookings, payments, search & filtering, and AI-powered RAG pipeline integration currently in progress.",
+      tech: [
+        "React Js",
+        "NestJS",
+        "TypeScript",
+        "MySQL",
+        "Prisma ORM",
+        "Razorpay",
+        "Cloudinary",
+        "RAG Pipeline"
+      ],
+      github: "https://github.com/shyamjha123/hotel-booking-management-system.git",
+      live: "https://rukorooms.com/",
+      images: [hotelmanage1, hotelmanage2, hotelmanage3, hotelmanage4] // Array of images for carousel
+    },
     {
       title: "Zevopay",
       description: "B2B Fintech product providing B2B services like collection, Payout, Loan services, Dth recharge, Rail ticketm bus ticket etc",
@@ -778,6 +904,54 @@ export default function Portfolio() {
           transform: scale(1.05);
         }
 
+        /* Carousel Styles */
+        .carousel-container {
+          position: relative;
+          width: 100%;
+          height: 200px;
+          overflow: hidden;
+        }
+
+        .carousel-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+        }
+
+        .carousel-indicators {
+          position: absolute;
+          bottom: 12px;
+          left: 50%;
+          transform: translateX(-50%);
+          display: flex;
+          gap: 8px;
+          z-index: 2;
+        }
+
+        .carousel-dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.3);
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+          background: #ff6844;
+          width: 24px;
+          border-radius: 5px;
+        }
+
+        .carousel-dot:hover {
+          background: rgba(255, 255, 255, 0.6);
+        }
+
+        .project-card:hover .carousel-image {
+          transform: scale(1.05);
+        }
+
         .project-content {
           padding: 2rem;
         }
@@ -964,6 +1138,10 @@ export default function Portfolio() {
 
           .contact-methods {
             flex-direction: column;
+          }
+
+          .carousel-container {
+            height: 150px;
           }
         }
       `}</style>
@@ -1182,7 +1360,12 @@ export default function Portfolio() {
           <div className="projects-grid">
             {projects.map((project, index) => (
               <div key={index} className="project-card">
-                <img src={project.image} alt={project.title} className="project-image" />
+                {/* Check if project has images array for carousel */}
+                {project.images ? (
+                  <ImageCarousel images={project.images} alt={project.title} />
+                ) : (
+                  <img src={project.image} alt={project.title} className="project-image" />
+                )}
                 <div className="project-content">
                   <h3 className="project-title">{project.title}</h3>
                   <p className="project-description">{project.description}</p>
